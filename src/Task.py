@@ -4,7 +4,7 @@ from Agent import competitor_analyst, content_creator, marketing_expert
 
 competitor_market_analysis_task = Task(
     description="""
-    Analyze the market and find which type of topics and youtube videos are trending the most in the space of tutorials for homelab, homelab tools, networks in that space. The task involves researching youtube, subreddits and google trends to find out what is currently trending and generating high levels of engagement in that space. 
+    Analyze the market and find which type of topics and youtube videos are trending the most in the space of tutorials for homelab, homelab tools, computing networks, top docker applications for homelabs, repurposed computer for router, repurposed computer for nas in that space. The task involves researching youtube, subreddits and google trends to find out what is currently trending and generating high levels of engagement in that space. 
     """,
     expected_output="""
     A detailed report of 3 topics that are trending the most, along with a list of youtube channels and subreddits that are related to those topics. If available, include the date of publication, topic engagement level, and a link to the video or post.    
@@ -34,7 +34,7 @@ generate_video_meta_task = Task(
     """,
     agent=marketing_expert,
     async_execution=False,
-    context=[next_video_task, competitor_analyst],
+    context=[next_video_task, competitor_market_analysis_task],
 )
 
 marketing_research_task = Task(
@@ -46,7 +46,7 @@ marketing_research_task = Task(
     """,
     agent=marketing_expert,
     async_execution=False,
-    context=[next_video_task, generate_video_meta_task, competitor_analyst],
+    context=[next_video_task, generate_video_meta_task, competitor_market_analysis_task],
 )
 
 create_a_post_task = Task(
