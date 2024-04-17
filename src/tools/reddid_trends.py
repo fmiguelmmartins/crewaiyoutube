@@ -2,13 +2,34 @@ import json
 import os
 import praw
 from datetime import datetime
-from langchain.tools import tool
+from tools.helper_tools import remove_emojis
+from crewai_tools import BaseTool
 
 
-class RedditTrends:
+class RedditTrends(BaseTool):
+    name: str = "Reddit Trends"
+    description: str = "Fetches the latest trends from our favorite subreddits."
 
-    @tool("Fetches the latest trends from our favorite subreddits.")
-    def scrape_reddit(subreddits=None):
+    def _run(self, subreddits=None) -> dict:
+        """
+        Executes the Reddit API to scrape the top posts and their best two comments from specified subreddits.
+
+        Parameters:
+            subreddits (list of str): Optional; a list of subreddit names to scrape. If not provided, the function defaults to
+                                      scraping posts from 'selfhosted', 'homelab', 'HomeNetworking', and 'HomeServer'.
+                                      A maximum of three subreddits can be specified at a time.
+
+        Returns:
+            dict: A dictionary where each key is a subreddit and the value is a list of the top posts from that subreddit,
+                  each post accompanied by its top two comments.
+
+        Notes:
+            Ensure that the subreddit names are correctly spelled and are existing subreddits on Reddit. The function is
+            limited to scraping no more than three subreddits at once to maintain performance and adhere to API usage guidelines.
+        """
+        return self.scrape_reddit(subreddits)
+
+    def scrape_reddit(self, subreddits=None):
         """
         Executes the Reddit API to scrape the top posts and their best two comments from specified subreddits.
 
@@ -48,7 +69,7 @@ class RedditTrends:
 
             for post in sub.top(limit=max_amount_of_posts):
                 posts = {
-                    "title": post.title,
+                    "title": remove_emojis(post.title),
                     "url": post.url,
                     "score": post.score,
                     # "description": post.selftext,
@@ -61,7 +82,7 @@ class RedditTrends:
                     comments = post.comments.list()[:2]
 
                     for comment in comments:
-                        posts["comments"].append(comment.body)
+                        posts["comments"].append(remove_emojis(comment.body))
 
                     scrapped_reddit_data.setdefault(sub.display_name, []).append(posts)
 
@@ -72,7 +93,8 @@ class RedditTrends:
 
 
 # def testCode():
-#     results = RedditTrends.scrape_reddit()
+#     reddit = RedditTrends()
+#     results = reddit.scrape_reddit()
 #     print(len(results))
 
 #     with open("data.json", "w") as f:

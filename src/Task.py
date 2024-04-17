@@ -4,7 +4,7 @@ from Agent import competitor_analyst, content_creator, marketing_expert
 
 competitor_market_analysis_task = Task(
     description="""
-    Analyze the market and find which type of topics and youtube videos are trending the most in the space of tutorials for homelab, homelab tools, computing networks, top docker applications for homelabs, repurposed computer for router, repurposed computer for nas in that space. The task involves researching youtube, subreddits and google trends to find out what is currently trending and generating high levels of engagement in that space. 
+    Analyze the market and find which type of topics and youtube videos are trending the most in the space of tutorials for homelab, homelab tools, computing networks, docker, docker applications, repurposing computers, repurposed computers for routing,PFSense, Opnsense, NAS servers such as truenas and unraid. The task involves researching youtube, subreddits and google trends to find out what is currently trending and generating high levels of engagement in that space. 
     """,
     expected_output="""
     A detailed report of 3 topics that are trending the most, along with a list of youtube channels and subreddits that are related to those topics. If available, include the date of publication, topic engagement level, and a link to the video or post.    
@@ -51,10 +51,10 @@ marketing_research_task = Task(
 
 create_a_post_task = Task(
     description="""
-    Create a post containing our video link for the forums, blogs and subreddits
+    Write a nice post containing our video link for the forums, blogs and subreddits advertised in the marketing research task. The post should be engaging and informative, but most importantly it should be enticing to our audience so that they will watch the video and want to share it with their friends.
     """,
     expected_output="The post must be engaging, with a fine balance between formality and laid back, but without any cheesyness.",
     agent=marketing_expert,
-    async_execution=True,
+    async_execution=False,
     context=[marketing_research_task, generate_video_meta_task, next_video_task],
 )

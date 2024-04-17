@@ -27,9 +27,6 @@ def main():
     print("************ Results *************")
     print(result)
 
-    with open("results.txt", "w") as f:
-        f.write(str(result))
-
 
 if __name__ == "__main__":
     main()

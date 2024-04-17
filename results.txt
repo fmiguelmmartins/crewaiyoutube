@@ -1,0 +1,30 @@
+The comprehensive report on all forums, blogs, and subreddits related to our niche of technology, homelab, and repurposed computers includes the following platforms:
+
+1. **Reddit Subreddits**:
+   - **r/homelab**:
+     - **Description**: A community for tech enthusiasts and IT professionals to discuss their home lab setups, including hardware selections, software configurations, and project ideas.
+     - **Activity Level**: Highly active with multiple posts per day.
+     - **Recent Interesting Post**: "Gigabit router was only hitting 100Mb. Diagnosis: Cat8 cable" (16,826 score, posted on July 7, 2021).
+   
+   - **r/HomeServer**:
+     - **Description**: Focuses on building and maintaining home server setups, discussing storage solutions, network configurations, and server software.
+     - **Activity Level**: Moderately active with several posts per week.
+     - **Recent Interesting Post**: "Small NAS build stop motion" (1,414 score, posted on May 20, 2021).
+   
+   - **r/selfhosted**:
+     - **Description**: Dedicated to the discussion of self-hosting your own services, applications, and technology at home.
+     - **Activity Level**: Moderately active with regular discussions and help requests.
+     - **Recent Interesting Post**: "Well, you know, I have my own ..." (4,257 score, posted on March 21, 2022).
+
+2. **Technology Blogs**:
+   - **ServeTheHome (STH)**:
+     - **Description**: Provides in-depth reviews, guides, and news on servers, networking, and IT gear, with a strong focus on DIY and professional setups.
+     - **Activity Level**: High, with daily updates and detailed articles.
+     - **Highlighted Article**: "Ultimate Guide to Building Your Own Home Server."
+   
+   - **TechCrunch - Hardware section**:
+     - **Description**: Covers the latest in technology innovation including hardware advancements, with occasional deep dives into home tech and server setups.
+     - **Activity Level**: High, with frequent updates on a range of tech topics.
+     - **Highlighted Article**: "Innovations in Home Networking for DIY Enthusiasts."
+
+This report identifies key platforms where our target audience is highly engaged, discussing relevant topics that align with our content creation goals. These insights will help in crafting targeted posts, engaging with the community, and enhancing our video content to better match audience interests and trends.
