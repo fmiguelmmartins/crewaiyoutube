@@ -35,5 +35,4 @@ Before you begin, ensure you have the following:
 
 
 ## Installation
-
-For step by step guide, please read the following article available on medium at https://medium.digitalmirror.uk/create-an-ai-team-to-manage-your-youtube-channel-5dc1e6c9b31b
+For step by step guide, please read the following article available on medium at https://medium.com/@fmiguelmmartins/create-an-ai-team-to-manage-your-youtube-channel-5dc1e6c9b31b
