@@ -2,7 +2,7 @@ import json
 import os
 import praw
 from datetime import datetime
-from tools.helper_tools import remove_emojis
+from helper_tools import remove_emojis
 from crewai_tools import BaseTool
 
 
@@ -67,7 +67,7 @@ class RedditTrends(BaseTool):
         for subreddit in subreddits:
             sub = reddit.subreddit(subreddit)
 
-            for post in sub.top(limit=max_amount_of_posts):
+            for post in sub.hot(limit=max_amount_of_posts):
                 posts = {
                     "title": remove_emojis(post.title),
                     "url": post.url,
@@ -92,14 +92,14 @@ class RedditTrends(BaseTool):
         return scrapped_reddit_data
 
 
-# def testCode():
-#     reddit = RedditTrends()
-#     results = reddit.scrape_reddit()
-#     print(len(results))
+def testCode():
+    reddit = RedditTrends()
+    results = reddit.scrape_reddit()
+    print(len(results))
 
-#     with open("data.json", "w") as f:
-#         json.dump(results, f)
+    with open("data.json", "w") as f:
+        json.dump(results, f)
 
 
-# if __name__ == "__main__":
-#     testCode()
+if __name__ == "__main__":
+    testCode()

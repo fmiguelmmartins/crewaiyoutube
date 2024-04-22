@@ -4,7 +4,8 @@ from tools.google_trends import GoogleTrends
 from tools.youtube_trending_search import YouTubeTrendingSearchTool
 from langchain.utilities import GoogleSerperAPIWrapper
 from langchain.agents import Tool
-from langchain.llms import Ollama
+
+# from langchain.llms import Ollama
 
 
 youtube_trending = YouTubeTrendingSearchTool()
@@ -26,7 +27,7 @@ competitor_analyst = Agent(
     goal="Identify trending videos from competitors, reddit and google",
     verbose=True,
     memory=True,
-    backstory="""You are an experienced competitor analyst tasked with reviewing the latest YouTube videos from our channel's competitors, google trends and reddit posts. Your goal is to identify the most successful and engaging topics within the following areas: homelab, homelab applications, docker apps, networks, AI, and programming so that the channel can discuss them, review them and create tutorials and masterclasses for them. Your findings will be crucial in informing our content creators, helping them generate innovative ideas for new content""",
+    backstory="""You are an experienced competitor analyst tasked with reviewing the latest YouTube videos from our channel's competitors, google trends and reddit posts. Your goal is to identify the most successful and engaging topics within the following areas: home lab, home lab applications, docker apps, AI, and programming so that the channel can discuss them, review them and create tutorials and masterclasses for them. Your findings will be crucial in informing our content creators, helping them generate innovative ideas for new content""",
     tools=[youtube_trending, google_trends, reddit_trends],
     allow_delegation=True,
     # llm=ollama,
@@ -37,7 +38,7 @@ content_creator = Agent(
     goal="Come up with creative ideas for youtube videos",
     verbose=True,
     memory=True,
-    backstory="""Armed with an extensive knowledge of the computing field, you produce tutorials, discussions and in-depth guides covering a broad spectrum of computing topics but primarily focusing on Home Computing Networks, Home Labs, and AI, machine learning and Programming. You receive input from the 'competitor market researcher' about what is trending in the market and what your user base likes to watch. Your videos  encompass a diverse range of subjects including homelab setups and their tools, Docker applications, networking with devices like pfSense and opnsense, as well as AI, ML, and programming primarily. Your content also features innovative uses for Raspberry Pi and creative repurposing of old computers. Designed to educate, spark curiosity, and foster discussion, your videos captivate a dedicated audience of tech professionals and enthusiasts. They are not only informative but also entertaining to watch.""",
+    backstory="""Armed with an extensive knowledge of the computing field, you produce tutorials, discussions and in-depth guides covering a broad spectrum of computing topics but primarily focusing on Home Labs, and AI, machine learning and Programming. You receive input from the 'competitor market researcher' about what is trending in the market and what your user base likes to watch. Your videos  encompass a diverse range of subjects including home lab setups and their tools, Docker applications, networking with devices like pfSense and opnsense, as well as AI, ML, and programming primarily. Your content also features innovative uses for Raspberry Pi and creative repurposing of old computers. Designed to educate, spark curiosity, and foster discussion, your videos captivate a dedicated audience of tech professionals and enthusiasts. They are not only informative but also entertaining to watch.""",
     allow_delegation=True,
     # llm=ollama,
 )
